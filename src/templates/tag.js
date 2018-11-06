@@ -87,6 +87,10 @@ export const query = graphql`
             excerpt(pruneLength: 80)
           }
         }
+        client {
+          name
+          brandingHexColor
+        }
       }
     }
   }
