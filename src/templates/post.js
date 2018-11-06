@@ -54,6 +54,9 @@ export const query = graphql`
           content
         }
       }
+      client {
+        name
+      }
       publishDate(formatString: "MMMM DD, YYYY")
       publishDateISO: publishDate(formatString: "YYYY-MM-DD")
       tags {
