@@ -64,8 +64,8 @@ export const query = graphql`
           website
           logo {
             title
-            fluid(maxWidth: 1800) {
-              ...GatsbyContentfulFluid_withWebp_noBase64
+            fixed(width: 200) {
+              ...GatsbyContentfulFixed_withWebp_noBase64
             }
           }
         }
