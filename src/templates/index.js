@@ -5,12 +5,14 @@ import CardList from '../components/CardList'
 import Card from '../components/Card'
 import Helmet from 'react-helmet'
 import Container from '../components/Container'
+import Client from '../components/Client'
 import Pagination from '../components/Pagination'
 import SEO from '../components/SEO'
 import config from '../utils/siteConfig'
 
 const Index = ({ data, pageContext }) => {
   const posts = data.allContentfulPost.edges
+  const clients = data.allContentfulClient.edges
   const featuredPost = posts[0].node
   const { currentPage } = pageContext
   const isFirstPage = currentPage === 1
@@ -40,12 +42,35 @@ const Index = ({ data, pageContext }) => {
         )}
       </Container>
       <Pagination context={pageContext} />
+      <Container>
+        <h2 className="section-headline">Our Clients</h2>
+        <CardList>
+          {clients.map(({ node }) => {
+            return <Client key={node.name} client={node} />
+          })}
+        </CardList>
+      </Container>
     </Layout>
   )
 }
 
 export const query = graphql`
   query($skip: Int!, $limit: Int!) {
+    allContentfulClient(sort: { fields: [name], order: ASC }) {
+      edges {
+        node {
+          name
+          brandingHexColor
+          website
+          logo {
+            title
+            fluid(maxWidth: 1800) {
+              ...GatsbyContentfulFluid_withWebp_noBase64
+            }
+          }
+        }
+      }
+    }
     allContentfulPost(
       sort: { fields: [publishDate], order: DESC }
       limit: $limit

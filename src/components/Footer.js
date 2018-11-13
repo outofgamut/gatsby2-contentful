@@ -59,19 +59,19 @@ const Footer = () => (
       </Item>
       <Item>
         <a
-          href="https://github.com/ryanwiemer/gatsby-starter-gcn"
+          href="https://github.com/allata-code/allata.com-poc1"
           target="_blank"
           rel="noopener noreferrer"
         >
-          gatsby-starter-gcn
+          allata.com-poc1
         </a>{' '}
         by{' '}
         <a
-          href="https://github.com/ryanwiemer"
+          href="https://github.com/allata-code"
           target="_blank"
           rel="noopener noreferrer"
         >
-          @ryanwiemer
+          allata devs
         </a>
       </Item>
     </List>
